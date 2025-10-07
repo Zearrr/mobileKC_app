@@ -11,7 +11,11 @@ import Dashboard from "./pages/Dashboard";
 import Jobs from "./pages/Jobs";
 import Inventory from "./pages/Inventory";
 import Customers from "./pages/Customers";
-import ComingSoon from "./pages/ComingSoon";
+import Sales from "./pages/Sales";
+import Claims from "./pages/Claims";
+import Finance from "./pages/Finance";
+import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,11 +37,11 @@ const App = () => (
                 <Route path="/jobs" element={<Jobs />} />
                 <Route path="/inventory" element={<Inventory />} />
                 <Route path="/customers" element={<Customers />} />
-                <Route path="/sales" element={<ComingSoon title="ขายหน้าร้าน (POS)" description="ระบบขายหน้าร้านกำลังพัฒนา" />} />
-                <Route path="/claims" element={<ComingSoon title="เคลม/ประกัน" description="ระบบจัดการเคลมและการรับประกันกำลังพัฒนา" />} />
-                <Route path="/finance" element={<ComingSoon title="การเงิน" description="ระบบจัดการการเงินกำลังพัฒนา" />} />
-                <Route path="/reports" element={<ComingSoon title="รายงาน" description="ระบบรายงานกำลังพัฒนา" />} />
-                <Route path="/settings" element={<ComingSoon title="ตั้งค่า" description="ตั้งค่าระบบกำลังพัฒนา" />} />
+                <Route path="/sales" element={<Sales />} />
+                <Route path="/claims" element={<Claims />} />
+                <Route path="/finance" element={<Finance />} />
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/settings" element={<Settings />} />
               </Route>
               
               <Route path="*" element={<NotFound />} />

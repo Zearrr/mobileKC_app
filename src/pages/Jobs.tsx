@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Plus, Search, Filter, Eye } from 'lucide-react';
+import { CreateJobDialog } from '@/components/jobs/CreateJobDialog';
 import {
   Table,
   TableBody,
@@ -70,6 +71,7 @@ const mockJobs = [
 
 export default function Jobs() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [createDialogOpen, setCreateDialogOpen] = useState(false);
 
   const filteredJobs = mockJobs.filter(job =>
     job.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -84,11 +86,16 @@ export default function Jobs() {
           <h1 className="text-3xl font-bold">งานซ่อม</h1>
           <p className="text-muted-foreground">จัดการและติดตามงานซ่อมทั้งหมด</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2" onClick={() => setCreateDialogOpen(true)}>
           <Plus className="h-4 w-4" />
           เปิดงานใหม่
         </Button>
       </div>
+
+      <CreateJobDialog 
+        open={createDialogOpen} 
+        onOpenChange={setCreateDialogOpen} 
+      />
 
       <Card className="shadow-sm">
         <CardHeader>

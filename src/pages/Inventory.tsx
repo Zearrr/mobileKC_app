@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Plus, Search, Package, AlertCircle } from 'lucide-react';
+import { CreateItemDialog } from '@/components/inventory/CreateItemDialog';
 import {
   Table,
   TableBody,
@@ -73,6 +74,7 @@ const mockInventory = [
 
 export default function Inventory() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [createDialogOpen, setCreateDialogOpen] = useState(false);
 
   const filteredItems = mockInventory.filter(item =>
     item.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -89,11 +91,16 @@ export default function Inventory() {
           <h1 className="text-3xl font-bold">คลังสินค้า</h1>
           <p className="text-muted-foreground">จัดการสินค้าและอะไหล่</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2" onClick={() => setCreateDialogOpen(true)}>
           <Plus className="h-4 w-4" />
           เพิ่มสินค้า
         </Button>
       </div>
+
+      <CreateItemDialog 
+        open={createDialogOpen} 
+        onOpenChange={setCreateDialogOpen} 
+      />
 
       {lowStockCount > 0 && (
         <Card className="border-warning bg-warning/5 shadow-sm">
