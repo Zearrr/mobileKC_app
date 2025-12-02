@@ -1,22 +1,23 @@
-import { Toaster } from "@/components/ui/toaster";
+import { AppLayout } from "@/components/layout/AppLayout";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { AppLayout } from "@/components/layout/AppLayout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/auth/Login";
-import Dashboard from "./pages/Dashboard";
-import Jobs from "./pages/Jobs";
-import Inventory from "./pages/Inventory";
-import Customers from "./pages/Customers";
-import Sales from "./pages/Sales";
 import Claims from "./pages/Claims";
+import CreateJob from "./pages/CreateJob";
+import Customers from "./pages/Customers";
+import Dashboard from "./pages/Dashboard";
 import Finance from "./pages/Finance";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
+import Inventory from "./pages/Inventory";
+import Jobs from "./pages/Jobs";
 import NotFound from "./pages/NotFound";
+import Reports from "./pages/Reports";
+import Sales from "./pages/Sales";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route element={<AppLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/jobs" element={<Jobs />} />
+                <Route path="/jobs/create" element={<CreateJob />} />
                 <Route path="/inventory" element={<Inventory />} />
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/sales" element={<Sales />} />

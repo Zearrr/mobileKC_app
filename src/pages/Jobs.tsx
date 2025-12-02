@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Search, Filter, Eye } from 'lucide-react';
-import { CreateJobDialog } from '@/components/jobs/CreateJobDialog';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import {
   Table,
   TableBody,
@@ -13,6 +10,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Eye, Filter, Plus, Search } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const mockJobs = [
   { 
@@ -71,7 +71,8 @@ const mockJobs = [
 
 export default function Jobs() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [createDialogOpen, setCreateDialogOpen] = useState(false);
+  // const [createDialogOpen, setCreateDialogOpen] = useState(false); <- ยกเลิก dialog เดิม
+  const navigate = useNavigate();
 
   const filteredJobs = mockJobs.filter(job =>
     job.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -86,16 +87,16 @@ export default function Jobs() {
           <h1 className="text-3xl font-bold">งานซ่อม</h1>
           <p className="text-muted-foreground">จัดการและติดตามงานซ่อมทั้งหมด</p>
         </div>
-        <Button className="gap-2" onClick={() => setCreateDialogOpen(true)}>
+        <Button className="gap-2" onClick={() => navigate("/jobs/create")}>    
           <Plus className="h-4 w-4" />
           เปิดงานใหม่
         </Button>
       </div>
 
-      <CreateJobDialog 
+      {/* <CreateJobDialog 
         open={createDialogOpen} 
         onOpenChange={setCreateDialogOpen} 
-      />
+      /> */}
 
       <Card className="shadow-sm">
         <CardHeader>

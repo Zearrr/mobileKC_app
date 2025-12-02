@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wrench, Loader2 } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 export default function Login() {
@@ -34,12 +34,12 @@ export default function Login() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/10 p-4">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader className="space-y-4 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary">
-            <Wrench className="h-8 w-8 text-primary-foreground" />
+          <div className="mx-auto flex h-18 w-18 items-center justify-center rounded-full overflow-hidden bg-transparent">
+            <img src="/KODPHONELOGO.png" alt="FixFlow Logo" className="h-16 w-16 object-cover rounded-full" />
           </div>
           <div>
-            <CardTitle className="text-2xl font-bold">FixFlow (TH)</CardTitle>
-            <CardDescription className="mt-2">ระบบจัดการร้านซ่อมมือถือและอิเล็กทรอนิกส์</CardDescription>
+            <CardTitle className="text-2xl font-bold">KODPHONE</CardTitle>
+            <CardDescription className="mt-2">ระบบจัดการร้านซ่อมมือถือ</CardDescription>
           </div>
         </CardHeader>
         
@@ -92,7 +92,6 @@ export default function Login() {
             <div className="space-y-1 text-muted-foreground">
               <p>• admin@fixflow.com / admin123</p>
               <p>• staff@fixflow.com / staff123</p>
-              <p>• finance@fixflow.com / finance123</p>
               <p>• viewer@fixflow.com / viewer123</p>
             </div>
           </div>

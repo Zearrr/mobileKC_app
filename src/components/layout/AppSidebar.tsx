@@ -1,32 +1,32 @@
-import { 
-  LayoutDashboard, 
-  Wrench, 
-  Package, 
-  Users, 
-  ShoppingCart, 
-  FileText, 
-  Shield, 
-  Wallet,
-  Settings,
-  LogOut
-} from 'lucide-react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { useAuth, UserRole } from '@/contexts/AuthContext';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarHeader,
-  SidebarFooter,
   useSidebar,
 } from '@/components/ui/sidebar';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { useAuth, UserRole } from '@/contexts/AuthContext';
+import {
+  FileText,
+  LayoutDashboard,
+  LogOut,
+  Package,
+  Settings,
+  Shield,
+  ShoppingCart,
+  Users,
+  Wallet,
+  Wrench
+} from 'lucide-react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 interface MenuItem {
   title: string;
@@ -67,12 +67,12 @@ export function AppSidebar() {
     <Sidebar className={isCollapsed ? 'w-16' : 'w-64'} collapsible="icon">
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-            <Wrench className="h-6 w-6 text-primary-foreground" />
+          <div className="flex h-14 w-14 items-center justify-center">
+            <img src="/KODPHONELOGO.png" alt="FixFlow Logo" className="h-14 w-14 rounded-full object-cover" />
           </div>
           {!isCollapsed && (
             <div>
-              <h1 className="text-lg font-bold text-sidebar-foreground">FixFlow</h1>
+              <h1 className="text-lg font-bold text-sidebar-foreground">KODPHONE</h1>
               <p className="text-xs text-sidebar-foreground/60">ระบบจัดการร้านซ่อม</p>
             </div>
           )}
